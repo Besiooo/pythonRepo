@@ -35,7 +35,7 @@ def commoner(word_a):
         if letter in word_a:
             result += letter.upper()
         else:
-            result 4+= letter
+            result += letter
 
     print(word_a + ' -><- ' + word_b + " = " + result)
 

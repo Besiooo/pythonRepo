@@ -1,15 +1,14 @@
-import os
-
-
 def initialise(directory, content):
     file = open(directory, "w")
     file.write(content)
     file.close()
 
+
 def read_file(directory):
     file = open(directory, "r")
     print(file.read())
     file.close()
+
 
 def main():
     base = """0 - Zero
