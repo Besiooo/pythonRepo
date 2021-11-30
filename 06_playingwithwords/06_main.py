@@ -32,11 +32,7 @@ def commoner(word_a):
         if i >= len(word_a):
             result += '$'
             continue
-        if letter in word_a:
-            result += letter.upper()
-        else:
-            result += letter
-
+        result += letter.upper() if letter in word_a else letter
     print(word_a + ' -><- ' + word_b + " = " + result)
 
 
