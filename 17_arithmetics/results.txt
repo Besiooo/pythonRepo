@@ -1,0 +1,5 @@
+Besio: 0/5 in level 2aaa: 1/5 in level 1
+aaa: 0/5 in level 2
+aaaaa: 0/5 in level 2 - integral squares of 11-29
+ggg: 0/5 in level 1 (simple operations with numbers 2-9)
+Duduœ: 4/5 in level 2 (integral squares of 11-29)

@@ -1,6 +1,7 @@
 import random
 import os
 import sys
+import dialogues as dg
 
 
 class Arithm:
@@ -28,11 +29,11 @@ class Arithm:
             try:
                 answer = int(input())
             except ValueError:
-                print("Incorrect format.")
+                print(dg.format_err)
         if answer != correct:
-            return "Wrong!"
+            return dg.wrong
         self.points += 1
-        return "Right!"
+        return dg.right
 
     def generate_problem_low_diff(self):
         min_v = 2
@@ -51,11 +52,11 @@ class Arithm:
             try:
                 answer = int(input())
             except ValueError:
-                print("Incorrect format.")
+                print(dg.format_err)
         if answer != correct:
-            return "Wrong!"
+            return dg.wrong
         self.points += 1
-        return "Right!"
+        return dg.right
 
     def generate_problem_high_diff(self):
         min_v = 11
@@ -65,28 +66,28 @@ class Arithm:
         print(self.guess_high_diff(a))
 
     def get_mark(self):
-        print(f"Your mark is {self.points}/{self.num_of_tasks}. Would you like to save the results? Enter yes or no.")
+        print(dg.print_final_message(self.points, self.num_of_tasks))
         d = input()
         self.mode = d in self.affirmatives
 
     def print_file(self):
-        name = input("What is your name?\n")
+        name = input(dg.ask_name)
         if os.path.isfile(".\\results.txt"):
             with open("results.txt", "a") as file:
-                file.write(f"{name}: {self.points}/{self.num_of_tasks} in level {self.level} ({self.levels[self.level - 1]})")
+                file.write(f"{name}: {self.points}/{self.num_of_tasks} in level {self.level} ({self.levels[self.level - 1]})\n")
         else:
             with open("results.txt", "w") as file:
-                file.write(f"{name}: {self.points}/{self.num_of_tasks} in level {self.level} ({self.levels[self.level - 1]})")
-        print("The results are saved in \"results.txt\".")
+                file.write(f"{name}: {self.points}/{self.num_of_tasks} in level {self.level} ({self.levels[self.level - 1]})\n")
+        print(dg.saved_results)
 
     def print_interface(self):
-        print("Which level do you want? Enter a number:")
+        print(dg.choose_level)
         print("1 - " + self.levels[0])
         print("2 - " + self.levels[1])
         try:
             self.level = int(input())
         except ValueError:
-            print("Bye bye baby, bye bye!")
+            print(dg.bye)
 
     def __init__(self):
         self.print_interface()
